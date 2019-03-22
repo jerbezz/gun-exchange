@@ -80,5 +80,11 @@ module.exports = {
         guns.splice(index, 1, editGun)
         res.status(200).send(guns)
     },
-    delete: (req, res) => {}
+    delete: (req, res) => {
+        let {id} = req.params
+
+        let index = guns.findIndex(gun => Number(gun.id) === Number(id))
+        guns.splice(index, 1)
+        res.status(200).send(guns)
+    }
 }

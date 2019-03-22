@@ -36,6 +36,10 @@ class Gun extends Component{
           })
       }
 
+      handleDeleteGun = () => {
+        this.props.deleteGun(this.state.id)
+      }
+
 
     render(){
         return this.state.edit ? (
@@ -49,24 +53,26 @@ class Gun extends Component{
                   <input name='round' value={this.state.round} onChange={this.handleChange}/>
                   <input name='price' value={this.state.price} onChange={this.handleChange}/>
                   <input name='phone' value={this.state.phone} onChange={this.handleChange}/>
-                  <button onClick={this.handleEditClick}>Edit Gun</button>
+                  <button className='confirm-button' onClick={this.handleUpdateClick}>Confirm</button>
               </div>
             </div>
 
 ) : (
-              
+              <div className='gun-container'>
               <div className='each-gun'>
                 <div className='the-pic'>
-                  <img src={this.props.gun.image} alt='' width='200'/>
+                  <img src={this.props.gun.image} alt='' height='200' width='200'/>
                 </div>
-                <div >
+                <div className='testing'>
                   <p><strong>Make:</strong> {this.props.gun.make}</p>
                   <p><strong>Model:</strong> {this.props.gun.model}</p>
                   <p><strong>Round:</strong> {this.props.gun.round}</p>
                   <p><strong>Price:</strong> $ {this.props.gun.price}</p>
                   <p><strong>Phone:</strong> {this.props.gun.phone}</p>
-                  <button onClick={this.handleUpdateClick}>Edit Gun</button>
+                  <button className='edit-button' onClick={this.handleEditClick}>Edit Gun</button>
+                  <button className='delete-button' onClick={this.handleDeleteGun}>Sold / Delete Post</button>
                 </div>
+            </div>
             </div>
         )
     }

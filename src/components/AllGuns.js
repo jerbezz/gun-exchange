@@ -28,6 +28,16 @@ class AllGuns extends Component{
         })
     }
 
+    deleteGun = id => {
+        axios.delete(`/api/guns/${id}`).then( res => {
+            this.setState({
+                guns: res.data
+            })
+        }).catch(err => {
+            console.log('delete error ocurred', err)
+        })
+    }
+
     componentDidMount(){
     axios.get('/api/guns').then(res => {
         this.setState({
@@ -41,11 +51,14 @@ class AllGuns extends Component{
         console.log(this.state.guns)
         return(
             <div>
-                <h1>Sale a gun:</h1>
+                <div className='for-sale'>
+                <h1>Sale a Gun:</h1>
+                </div>
                 <SaleGun 
                 guns={this.state.guns}
                 handleAddGun={this.handleAddGun}
-                updateGun={this.updateGun}/>
+                updateGun={this.updateGun}
+                deleteGun={this.deleteGun}/>
             </div>
         )
     }
