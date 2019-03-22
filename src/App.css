@@ -1,5 +1,31 @@
-.App {
+body{
+  background: red;
+}
+
+header {
+  background: blue;
   text-align: center;
+  height: 50px;
+  font-size: 40px;
+}
+
+footer {
+  background: green;
+  height: 30px;
+  text-align: center;
+}
+
+.each-gun{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px black solid;
+  
+
+}
+
+.the-pic {
+  margin-right: 20px;
 }
 
 .App-logo {
