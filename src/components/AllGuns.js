@@ -52,7 +52,7 @@ class AllGuns extends Component{
         return(
             <div>
                 <div className='for-sale'>
-                <h1>Sale a Gun:</h1>
+                <h1 className='g-f-s'>Sale a Gun:</h1>
                 </div>
                 <SaleGun 
                 guns={this.state.guns}
